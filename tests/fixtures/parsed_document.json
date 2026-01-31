@@ -1,0 +1,292 @@
+{
+  "metadata": {
+    "title": "",
+    "author": "python-docx",
+    "subject": "",
+    "created": "2013-12-23 23:15:00",
+    "modified": "2013-12-23 23:15:00",
+    "revision": 1
+  },
+  "paragraphs": [
+    {
+      "id": 0,
+      "text": "EMPLOYMENT AGREEMENT",
+      "style": "Normal",
+      "alignment": "center",
+      "runs": [
+        {
+          "id": 0,
+          "text": "EMPLOYMENT AGREEMENT",
+          "bold": true,
+          "italic": false,
+          "underline": false,
+          "font_name": "Calibri",
+          "font_size": 16.0,
+          "font_color": null,
+          "highlight": null
+        }
+      ],
+      "is_empty": false
+    },
+    {
+      "id": 1,
+      "text": "",
+      "style": "Normal",
+      "alignment": "left",
+      "runs": [],
+      "is_empty": true
+    },
+    {
+      "id": 2,
+      "text": "This Employment Agreement (the 'Agreement') is entered into on January 1, 2026, between Acme Corporation ('Employer') and John Doe ('Employee').",
+      "style": "Normal",
+      "alignment": "justify",
+      "runs": [
+        {
+          "id": 0,
+          "text": "This Employment Agreement (the 'Agreement') is entered into on January 1, 2026, between Acme Corporation ('Employer') and John Doe ('Employee').",
+          "bold": false,
+          "italic": false,
+          "underline": false,
+          "font_name": "Calibri",
+          "font_size": 11,
+          "font_color": null,
+          "highlight": null
+        }
+      ],
+      "is_empty": false
+    },
+    {
+      "id": 3,
+      "text": "",
+      "style": "Normal",
+      "alignment": "left",
+      "runs": [],
+      "is_empty": true
+    },
+    {
+      "id": 4,
+      "text": "1. Position and Duties",
+      "style": "Normal",
+      "alignment": "left",
+      "runs": [
+        {
+          "id": 0,
+          "text": "1. Position and Duties",
+          "bold": true,
+          "italic": false,
+          "underline": false,
+          "font_name": "Calibri",
+          "font_size": 11,
+          "font_color": null,
+          "highlight": null
+        }
+      ],
+      "is_empty": false
+    },
+    {
+      "id": 5,
+      "text": "The Employee shall serve as Senior Software Engineer and shall perform such duties as are customarily associated with such position. The Employee shall report directly to the Chief Technology Officer.",
+      "style": "Normal",
+      "alignment": "justify",
+      "runs": [
+        {
+          "id": 0,
+          "text": "The Employee shall serve as Senior Software Engineer and shall perform such duties as are customarily associated with such position. The Employee shall report directly to the Chief Technology Officer.",
+          "bold": false,
+          "italic": false,
+          "underline": false,
+          "font_name": "Calibri",
+          "font_size": 11,
+          "font_color": null,
+          "highlight": null
+        }
+      ],
+      "is_empty": false
+    },
+    {
+      "id": 6,
+      "text": "",
+      "style": "Normal",
+      "alignment": "left",
+      "runs": [],
+      "is_empty": true
+    },
+    {
+      "id": 7,
+      "text": "2. Compensation",
+      "style": "Normal",
+      "alignment": "left",
+      "runs": [
+        {
+          "id": 0,
+          "text": "2. Compensation",
+          "bold": true,
+          "italic": false,
+          "underline": false,
+          "font_name": "Calibri",
+          "font_size": 11,
+          "font_color": null,
+          "highlight": null
+        }
+      ],
+      "is_empty": false
+    },
+    {
+      "id": 8,
+      "text": "The Employee shall receive an annual base salary of $120,000, payable in accordance with the Employer's standard payroll practices. The Employee shall be eligible for an annual performance bonus of up to 15% of base salary.",
+      "style": "Normal",
+      "alignment": "justify",
+      "runs": [
+        {
+          "id": 0,
+          "text": "The Employee shall receive an annual base salary of $120,000, payable in accordance with the Employer's standard payroll practices. The Employee shall be eligible for an annual performance bonus of up to 15% of base salary.",
+          "bold": false,
+          "italic": false,
+          "underline": false,
+          "font_name": "Calibri",
+          "font_size": 11,
+          "font_color": null,
+          "highlight": null
+        }
+      ],
+      "is_empty": false
+    },
+    {
+      "id": 9,
+      "text": "",
+      "style": "Normal",
+      "alignment": "left",
+      "runs": [],
+      "is_empty": true
+    },
+    {
+      "id": 10,
+      "text": "3. Confidentiality",
+      "style": "Normal",
+      "alignment": "left",
+      "runs": [
+        {
+          "id": 0,
+          "text": "3. Confidentiality",
+          "bold": true,
+          "italic": false,
+          "underline": false,
+          "font_name": "Calibri",
+          "font_size": 11,
+          "font_color": null,
+          "highlight": null
+        }
+      ],
+      "is_empty": false
+    },
+    {
+      "id": 11,
+      "text": "The Employee agrees to maintain the confidentiality of all proprietary information and trade secrets of the Employer during and after the term of employment.",
+      "style": "Normal",
+      "alignment": "justify",
+      "runs": [
+        {
+          "id": 0,
+          "text": "The Employee agrees to maintain the confidentiality of all proprietary information and trade secrets of the Employer during and after the term of employment.",
+          "bold": false,
+          "italic": false,
+          "underline": false,
+          "font_name": "Calibri",
+          "font_size": 11,
+          "font_color": null,
+          "highlight": null
+        }
+      ],
+      "is_empty": false
+    },
+    {
+      "id": 12,
+      "text": "",
+      "style": "Normal",
+      "alignment": "left",
+      "runs": [],
+      "is_empty": true
+    },
+    {
+      "id": 13,
+      "text": "",
+      "style": "Normal",
+      "alignment": "left",
+      "runs": [],
+      "is_empty": true
+    },
+    {
+      "id": 14,
+      "text": "_________________________\nEmployer Signature",
+      "style": "Normal",
+      "alignment": "left",
+      "runs": [
+        {
+          "id": 0,
+          "text": "_________________________",
+          "bold": false,
+          "italic": false,
+          "underline": false,
+          "font_name": "Calibri",
+          "font_size": 11,
+          "font_color": null,
+          "highlight": null
+        },
+        {
+          "id": 1,
+          "text": "\nEmployer Signature",
+          "bold": false,
+          "italic": false,
+          "underline": false,
+          "font_name": "Calibri",
+          "font_size": 11,
+          "font_color": null,
+          "highlight": null
+        }
+      ],
+      "is_empty": false
+    },
+    {
+      "id": 15,
+      "text": "",
+      "style": "Normal",
+      "alignment": "left",
+      "runs": [],
+      "is_empty": true
+    },
+    {
+      "id": 16,
+      "text": "_________________________\nEmployee Signature",
+      "style": "Normal",
+      "alignment": "left",
+      "runs": [
+        {
+          "id": 0,
+          "text": "_________________________",
+          "bold": false,
+          "italic": false,
+          "underline": false,
+          "font_name": "Calibri",
+          "font_size": 11,
+          "font_color": null,
+          "highlight": null
+        },
+        {
+          "id": 1,
+          "text": "\nEmployee Signature",
+          "bold": false,
+          "italic": false,
+          "underline": false,
+          "font_name": "Calibri",
+          "font_size": 11,
+          "font_color": null,
+          "highlight": null
+        }
+      ],
+      "is_empty": false
+    }
+  ],
+  "total_paragraphs": 17,
+  "total_runs": 12
+}
