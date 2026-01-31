@@ -1,8 +1,19 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.exceptions import RequestValidationError
 from app.core.config import settings
 from app.core.logging import logger
 from app.core.database import create_tables
+from app.core.exceptions import (
+    DocumentNotFoundException,
+    JobNotFoundException,
+    PatchNotReadyException,
+    document_not_found_handler,
+    job_not_found_handler,
+    patch_not_ready_handler,
+    validation_exception_handler,
+    generic_exception_handler
+)
 
 # Create FastAPI app
 app = FastAPI(
@@ -21,11 +32,17 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Register exception handlers
+app.add_exception_handler(DocumentNotFoundException, document_not_found_handler)
+app.add_exception_handler(JobNotFoundException, job_not_found_handler)
+app.add_exception_handler(PatchNotReadyException, patch_not_ready_handler)
+app.add_exception_handler(RequestValidationError, validation_exception_handler)
+app.add_exception_handler(Exception, generic_exception_handler)
+
 
 @app.on_event("startup")
 async def startup_event():
     logger.info(f"Starting {settings.APP_NAME} in {settings.ENVIRONMENT} mode")
-    # Create database tables
     await create_tables()
     logger.info("Database initialized")
 
