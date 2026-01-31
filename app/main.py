@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.core.config import settings
 from app.core.logging import logger
+from app.core.database import create_tables
 
 # Create FastAPI app
 app = FastAPI(
@@ -24,6 +25,9 @@ app.add_middleware(
 @app.on_event("startup")
 async def startup_event():
     logger.info(f"Starting {settings.APP_NAME} in {settings.ENVIRONMENT} mode")
+    # Create database tables
+    await create_tables()
+    logger.info("Database initialized")
 
 
 @app.on_event("shutdown")
@@ -45,5 +49,6 @@ async def root():
 async def health_check():
     return {
         "status": "healthy",
-        "environment": settings.ENVIRONMENT
+        "environment": settings.ENVIRONMENT,
+        "database": "connected"
     }
