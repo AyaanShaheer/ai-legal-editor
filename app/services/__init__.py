@@ -8,6 +8,13 @@ from app.services.document_helpers import (
 )
 from app.services.patch_engine import PatchEngine, ParagraphPatchGenerator
 from app.services.patch_applier import PatchApplier, BatchPatchApplier
+from app.services.azure_storage import AzureStorageService
+from app.services.storage_helpers import (
+    parse_blob_path,
+    generate_blob_name,
+    get_latest_version_number,
+    format_file_size
+)
 
 __all__ = [
     "DOCXParser",
@@ -19,5 +26,10 @@ __all__ = [
     "PatchEngine",
     "ParagraphPatchGenerator",
     "PatchApplier",
-    "BatchPatchApplier"
+    "BatchPatchApplier",
+    "AzureStorageService",
+    "parse_blob_path",
+    "generate_blob_name",
+    "get_latest_version_number",
+    "format_file_size"
 ]
