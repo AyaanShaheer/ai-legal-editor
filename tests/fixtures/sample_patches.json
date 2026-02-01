@@ -1,0 +1,104 @@
+[
+  {
+    "paragraph_id": 5,
+    "paragraph_index": 5,
+    "original_text": "The Employee shall serve as Senior Software Engineer.",
+    "replacement_text": "The Employee shall serve as Principal Software Architect.",
+    "operations": [
+      {
+        "type": "equal",
+        "text": "The Employee shall serve as ",
+        "position": 0,
+        "length": 28
+      },
+      {
+        "type": "delete",
+        "text": "Senior",
+        "position": 28,
+        "length": 6
+      },
+      {
+        "type": "insert",
+        "text": "Principal",
+        "position": 34,
+        "length": 9
+      },
+      {
+        "type": "equal",
+        "text": " Software ",
+        "position": 34,
+        "length": 10
+      },
+      {
+        "type": "delete",
+        "text": "Engineer",
+        "position": 44,
+        "length": 8
+      },
+      {
+        "type": "insert",
+        "text": "Architect",
+        "position": 52,
+        "length": 9
+      },
+      {
+        "type": "equal",
+        "text": ".",
+        "position": 52,
+        "length": 1
+      }
+    ],
+    "reasoning": "Update job title to reflect promotion",
+    "has_changes": true,
+    "change_summary": {
+      "total_operations": 7,
+      "insertions": 2,
+      "deletions": 2,
+      "equal": 3,
+      "chars_inserted": 18,
+      "chars_deleted": 14
+    }
+  },
+  {
+    "paragraph_id": 8,
+    "paragraph_index": 8,
+    "original_text": "The Employee shall receive an annual base salary of $120,000.",
+    "replacement_text": "The Employee shall receive an annual base salary of $150,000.",
+    "operations": [
+      {
+        "type": "equal",
+        "text": "The Employee shall receive an annual base salary of $1",
+        "position": 0,
+        "length": 54
+      },
+      {
+        "type": "delete",
+        "text": "2",
+        "position": 54,
+        "length": 1
+      },
+      {
+        "type": "insert",
+        "text": "5",
+        "position": 55,
+        "length": 1
+      },
+      {
+        "type": "equal",
+        "text": "0,000.",
+        "position": 55,
+        "length": 6
+      }
+    ],
+    "reasoning": "Salary adjustment for new role",
+    "has_changes": true,
+    "change_summary": {
+      "total_operations": 4,
+      "insertions": 1,
+      "deletions": 1,
+      "equal": 2,
+      "chars_inserted": 1,
+      "chars_deleted": 1
+    }
+  }
+]
