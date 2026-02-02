@@ -14,6 +14,7 @@ from app.core.exceptions import (
     validation_exception_handler,
     generic_exception_handler
 )
+from app.api import routes
 
 # Create FastAPI app
 app = FastAPI(
@@ -39,6 +40,9 @@ app.add_exception_handler(PatchNotReadyException, patch_not_ready_handler)
 app.add_exception_handler(RequestValidationError, validation_exception_handler)
 app.add_exception_handler(Exception, generic_exception_handler)
 
+# Include API routes
+app.include_router(routes.router, prefix=settings.API_V1_PREFIX, tags=["documents"])
+
 
 @app.on_event("startup")
 async def startup_event():
@@ -58,7 +62,8 @@ async def root():
         "app": settings.APP_NAME,
         "version": "0.1.0",
         "status": "running",
-        "environment": settings.ENVIRONMENT
+        "environment": settings.ENVIRONMENT,
+        "docs": "/docs"
     }
 
 
