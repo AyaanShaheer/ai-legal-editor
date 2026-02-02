@@ -1,0 +1,38 @@
+{
+  "instruction_1": {
+    "instruction": "Change all references to 'Acme Corporation' to 'TechCorp Industries'",
+    "edits": [
+      {
+        "paragraph_id": 2,
+        "paragraph_index": 2,
+        "original_text": "This Employment Agreement (the 'Agreement') is entered into on January 1, 2026, between Acme Corporation ('Employer') and John Doe ('Employee').",
+        "replacement_text": "This Employment Agreement (the 'Agreement') is entered into on January 1, 2026, between TechCorp Industries ('Employer') and John Doe ('Employee').",
+        "reasoning": "Updated company name from Acme Corporation to TechCorp Industries"
+      }
+    ]
+  },
+  "instruction_2": {
+    "instruction": "Change the annual salary from $120,000 to $150,000 and the bonus percentage from 15% to 20%",
+    "edits": [
+      {
+        "paragraph_id": 8,
+        "paragraph_index": 8,
+        "original_text": "The Employee shall receive an annual base salary of $120,000, payable in accordance with the Employer's standard payroll practices. The Employee shall be eligible for an annual performance bonus of up to 15% of base salary.",
+        "replacement_text": "The Employee shall receive an annual base salary of $150,000, payable in accordance with the Employer's standard payroll practices. The Employee shall be eligible for an annual performance bonus of up to 20% of base salary.",
+        "reasoning": "Updated annual salary from $120,000 to $150,000 and bonus percentage from 15% to 20%"
+      }
+    ]
+  },
+  "instruction_3": {
+    "instruction": "Change the position from Senior Software Engineer to Principal Software Architect",
+    "edits": [
+      {
+        "paragraph_id": 5,
+        "paragraph_index": 5,
+        "original_text": "The Employee shall serve as Senior Software Engineer and shall perform such duties as are customarily associated with such position. The Employee shall report directly to the Chief Technology Officer.",
+        "replacement_text": "The Employee shall serve as Principal Software Architect and shall perform such duties as are customarily associated with such position. The Employee shall report directly to the Chief Technology Officer.",
+        "reasoning": "Updated job title from Senior Software Engineer to Principal Software Architect"
+      }
+    ]
+  }
+}

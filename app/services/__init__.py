@@ -15,6 +15,7 @@ from app.services.storage_helpers import (
     get_latest_version_number,
     format_file_size
 )
+from app.services.agent_factory import get_legal_agent
 
 __all__ = [
     "DOCXParser",
@@ -31,5 +32,6 @@ __all__ = [
     "parse_blob_path",
     "generate_blob_name",
     "get_latest_version_number",
-    "format_file_size"
+    "format_file_size",
+    "get_legal_agent"
 ]

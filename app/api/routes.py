@@ -222,6 +222,14 @@ async def list_versions(
     summary="Submit edit instruction",
     description="Submit an instruction to edit the document using AI"
 )
+
+@router.post(
+    "/documents/{document_id}/edit",
+    response_model=EditInstructionResponse,
+    status_code=status.HTTP_201_CREATED,
+    summary="Submit edit instruction",
+    description="Submit an instruction to edit the document using AI"
+)
 async def submit_edit_instruction(
     document_id: int,
     request: EditInstructionRequest,
@@ -245,7 +253,11 @@ async def submit_edit_instruction(
     
     logger.info(f"Created edit job {job.id} for document {document_id}")
     
-    # TODO: Trigger Celery task here (Step 11)
+    # Trigger Celery task
+    from app.tasks import process_edit_instruction
+    process_edit_instruction.delay(job.id)
+    
+    logger.info(f"Triggered Celery task for job {job.id}")
     
     return EditInstructionResponse(
         job_id=job.id,
@@ -254,6 +266,7 @@ async def submit_edit_instruction(
         instruction=job.instruction,
         created_at=job.created_at
     )
+
 
 
 @router.get(
@@ -372,3 +385,98 @@ async def delete_document(
     await doc_repo.delete(document_id)
     
     logger.info(f"Deleted document {document_id}")
+
+
+@router.post(
+    "/jobs/{job_id}/apply",
+    response_model=ApplyPatchResponse,
+    summary="Apply patch to document",
+    description="Apply the generated patch and create a new document version"
+)
+async def apply_patch(
+    job_id: int,
+    request: ApplyPatchRequest,
+    user_id: str = Depends(get_current_user_id),
+    job_repo: JobRepository = Depends(get_job_repository),
+    doc_repo: DocumentRepository = Depends(get_document_repository),
+    version_repo: DocumentVersionRepository = Depends(get_version_repository),
+    storage: AzureStorageService = Depends(get_storage_service)
+):
+    """Apply patch and create new document version"""
+    
+    # Get job
+    job = await job_repo.get_by_id(job_id)
+    if not job:
+        raise JobNotFoundException(job_id)
+    
+    # Check document ownership
+    document = await doc_repo.get_by_id(job.document_id)
+    if not document or document.user_id != user_id:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Access denied"
+        )
+    
+    # Check if patch is ready
+    if job.status != JobStatus.COMPLETED or not job.patch_json:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=f"Patch not ready. Current status: {job.status}"
+        )
+    
+    try:
+        # Parse patches
+        import json
+        from app.services import BatchPatchApplier
+        
+        patch_data = json.loads(job.patch_json)
+        patches = patch_data.get("patches", [])
+        
+        # Download original document
+        original_bytes = storage.download_document(document.blob_path)
+        
+        # Apply patches
+        logger.info(f"Applying {len(patches)} patches to document {document.id}")
+        modified_bytes = BatchPatchApplier.apply_patches_to_document(
+            original_bytes,
+            patches,
+            author="AI Legal Assistant"
+        )
+        
+        # Get next version number
+        next_version = await version_repo.get_next_version_number(document.id)
+        
+        # Upload modified document
+        new_blob_path = storage.upload_document(
+            file_content=modified_bytes,
+            user_id=user_id,
+            document_id=document.id,
+            filename=document.original_filename,
+            version=next_version
+        )
+        
+        # Create new version record
+        new_version = await version_repo.create(
+            document_id=document.id,
+            version_number=next_version,
+            blob_path=new_blob_path,
+            description=request.description or f"AI edit: {job.instruction[:100]}"
+        )
+        
+        logger.info(f"Created version {next_version} for document {document.id}")
+        
+        return ApplyPatchResponse(
+            document_id=document.id,
+            new_version_id=new_version.id,
+            version_number=new_version.version_number,
+            blob_path=new_blob_path,
+            description=new_version.description,
+            created_at=new_version.created_at
+        )
+        
+    except Exception as e:
+        logger.error(f"Failed to apply patch: {str(e)}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Failed to apply patch: {str(e)}"
+        )
